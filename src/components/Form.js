@@ -1,35 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 
-const Form = () => {
-  const [films, setFilms] = useState([]);
+const Form = ({onSubmit}) => {
+  
   const [userInput, setUserInput] = useState("");
-  const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
+  
 
-  const fetchSearchMovies = (keyword) => {
-    // calling our api data
-    axios({
-      url: "https://api.themoviedb.org/3/search/movie",
-      method: "GET",
-      params: {
-        api_key: apiKey,
-        query: keyword,
-        language: "en",
-        include_adult: false,
-        page: "1",
-      },
-    })
-      .then((res) => {
-        setFilms(res.data.results);
-        console.log(res.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-        console.log("Error detected!");
-      });
-  };
+  
   const handleSubmit = (event) => {
-    fetchSearchMovies(userInput);
+    onSubmit(userInput);
     event.preventDefault();
     setUserInput("");
   };

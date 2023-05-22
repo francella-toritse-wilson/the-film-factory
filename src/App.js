@@ -8,8 +8,12 @@ import Nav from "./components/Nav.js";
 import { Route, Link, Routes } from "react-router-dom";
 
 function App() {
-  // Initializng a state variable named films to hold our data from the api, along side its updater function
+  // Initializng a state variable named films to hold our data from the api, along side its updater function on page load
   const [films, setFilms] = useState([]);
+
+  // intitalizing a state variable to hold searched results 
+  const [searchedFilms, setSearchedFilms] =useState([])
+
   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
   // Creating a callback function that generates random query calls so on page load our movie selections are different each time it loads.
@@ -50,10 +54,34 @@ function App() {
   // Using the useEffect function here to call the sideeffct and include the depedency array to only call it once
   useEffect(fetchMovies, []);
 
+  const fetchSearchMovies = (keyword) => {
+    const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
+    // calling our api data
+    axios({
+      url: "https://api.themoviedb.org/3/search/movie",
+      method: "GET",
+      params: {
+        api_key: apiKey,
+        query: keyword,
+        language: "en",
+        include_adult: false,
+        page: "1",
+      },
+    })
+      .then((res) => {
+        setSearchedFilms(res.data.results);
+        console.log(res.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("Error detected!");
+      });
+  };
+
   return (
     <>
       <Nav />
-      <Form/>
+      <Form onSubmit={fetchSearchMovies} />
       <ul>
         {films.map((individualMovie) => {
           return (
@@ -64,7 +92,7 @@ function App() {
           );
         })}
       </ul>
-      {/* <MovieResults /> */}
+      <MovieResults movies={searchedFilms} />
       <MySavedMovies />
     </>
   );
