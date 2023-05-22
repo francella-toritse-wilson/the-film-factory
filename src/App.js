@@ -27,7 +27,7 @@ function App() {
     const randomMovieGenerator = generateRandomMovies();
     // calling our api data
     axios({
-      url: "https://api.themoviedb.org/3/search/movie",
+      url: "https://api.themoviedb.org/3/discover/movie",
       method: "GET",
       params: {
         api_key: apiKey,

@@ -5,6 +5,7 @@ const MovieResults = ({ movies }) => {
         return (
           <li key={individualMovie.id}>
             <p>{individualMovie.title}</p>
+            <img src={individualMovie.poster_path} alt=""/>
           </li>
         );
       })}
