@@ -1,25 +1,25 @@
 import axios from "axios";
-import firebaseData from "./components/firebase.js";
-import { getDatabase, ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";
 import MovieResults from "./components/MovieResults.js";
 import "./App.css";
 import MySavedMovies from "./components/MySavedMovies.js";
+import Form from "./components/Form.js";
+import Nav from "./components/Nav.js";
+import { Route, Link, Routes } from "react-router-dom";
 
-function App() { 
+function App() {
   // Initializng a state variable named films to hold our data from the api, along side its updater function
   const [films, setFilms] = useState([]);
   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
-
-  // Creating a callback function that generates random query calls so on page load our movie selections are different each time it loads. 
+  // Creating a callback function that generates random query calls so on page load our movie selections are different each time it loads.
 
   const generateRandomMovies = () => {
-    // creating variable called queries that holds an array of possible string that can be passed in the query parameter 
+    // creating variable called queries that holds an array of possible string that can be passed in the query parameter
     const queries = ["fast", "comedy", "action", "horror"];
-    // creating a randomizer function that will shuffle between the array and pick one 
+    // creating a randomizer function that will shuffle between the array and pick one
     const shuffleRandomizer = Math.floor(Math.random() * queries.length);
-    // returning an random index 
+    // returning an random index
     return queries[shuffleRandomizer];
   };
 
@@ -47,12 +47,24 @@ function App() {
       });
   };
 
-  // Using the useEffect function here to call the sideeffct and include the depedency array to only call it once 
+  // Using the useEffect function here to call the sideeffct and include the depedency array to only call it once
   useEffect(fetchMovies, []);
 
   return (
     <>
-      <MovieResults movies={films} />
+      <Nav />
+      <Form/>
+      <ul>
+        {films.map((individualMovie) => {
+          return (
+            <li key={individualMovie.id}>
+              <p>{individualMovie.title}</p>
+              <img src={individualMovie.poster_path} alt="" />
+            </li>
+          );
+        })}
+      </ul>
+      {/* <MovieResults /> */}
       <MySavedMovies />
     </>
   );
