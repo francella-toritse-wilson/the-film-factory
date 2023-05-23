@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MovieResults from "./components/MovieResults.js";
 import "./App.css";
+import Welcome from "./components/Welcome.js";
 import MySavedMovies from "./components/MySavedMovies.js";
 import Form from "./components/Form.js";
 import Nav from "./components/Nav.js";
@@ -9,7 +10,7 @@ import { Route, Link, Routes, useNavigate } from "react-router-dom";
 
 function App() {
   // Initializng a state variable named films to hold our data from the api, along side its updater function on page load
-  const [films, setFilms] = useState([]);
+
 
   // intitalizing a state variable to hold searched results
   const [searchedFilms, setSearchedFilms] = useState([]);
@@ -17,32 +18,8 @@ function App() {
   // initializing a state variable to store a boolean to see if search was performed
   const [isSearchMade, setIsSearchMade] = useState(false);
 
-  const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
-  const fetchMovies = (word) => {
-    // calling our api data
-    axios({
-      url: "https://api.themoviedb.org/3/discover/movie",
-      method: "GET",
-      params: {
-        api_key: apiKey,
-        query: word,
-        language: "en-US",
-        include_adult: false,
-        page: "1",
-      },
-    })
-      .then((res) => {
-        setFilms(res.data.results);
-        console.log(res.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-        console.log("Error detected!");
-      });
-  };
 
   // Using the useEffect function here to call the sideeffct and include the depedency array to only call it once
-  useEffect(fetchMovies, []);
 
   const navigate = useNavigate();
   const fetchSearchMovies = (keyword) => {
@@ -81,16 +58,7 @@ function App() {
         <Route
           path="/"
           element={
-            <ul>
-              {films.map((individualMovie) => {
-                return (
-                  <li key={individualMovie.id}>
-                    <p>{individualMovie.title}</p>
-                    <img src={individualMovie.poster_path} alt="" />
-                  </li>
-                );
-              })}
-            </ul>
+            <Welcome />
           }
         />
 
@@ -103,7 +71,8 @@ function App() {
       </Routes>
     </>
   );
-}
+
+};
 
 export default App;
 
