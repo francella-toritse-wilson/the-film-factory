@@ -26,17 +26,23 @@ const Form = ({name}) => {
       params: {
         api_key: apiKey,
         query: userInput,
-        language: "en",
+        // original_language: "en",
         include_adult: false,
         page: "1",
       },
     })
       .then((res) => {
-        setSearchedFilms(res.data.results);
-        name(res.data.results);
-        console.log(res.data.results);
+
+        const results = res.data.results
+        const englishAndPoster = results.filter((obj) => { return obj.original_language === "en" && obj.poster_path !== null }) 
+        
+        console.log(englishAndPoster)
+        
+        setSearchedFilms(englishAndPoster);
+        name(englishAndPoster);
         setIsSearchMade(true);
         navigate("/movieResults");
+        
       })
       .catch((error) => {
         console.log(error);
