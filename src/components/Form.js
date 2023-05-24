@@ -1,17 +1,14 @@
-
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const Form = ({name}) => {
-  
+const Form = ({ name }) => {
   const [userInput, setUserInput] = useState("");
 
   const [searchedFilms, setSearchedFilms] = useState([]);
 
   // initializing a state variable to store a boolean to see if search was performed
   const [isSearchMade, setIsSearchMade] = useState(false);
-
 
   // Using the useEffect function here to call the sideeffct and include the depedency array to only call it once
 
@@ -32,25 +29,25 @@ const Form = ({name}) => {
       },
     })
       .then((res) => {
-
-        const results = res.data.results
-        const englishAndPoster = results.filter((obj) => { return obj.original_language === "en" && obj.poster_path !== null }) 
-        
-        console.log(englishAndPoster)
-        
-        setSearchedFilms(englishAndPoster);
-        name(englishAndPoster);
+        const results = res.data.results;
+        console.log(results)
         setIsSearchMade(true);
         navigate("/movieResults");
-        
+        const englishAndPoster = results.filter((obj) => {
+          return obj.original_language === "en" && obj.poster_path !== null;
+        });
+
+        console.log(englishAndPoster);
+
+        setSearchedFilms(englishAndPoster);
+        name(englishAndPoster);
       })
       .catch((error) => {
         console.log(error);
         console.log("Error detected!");
       });
   };
-  
- useEffect(fetchSearchMovies, []);
+
 
   const handleSubmit = (event) => {
     fetchSearchMovies(userInput);

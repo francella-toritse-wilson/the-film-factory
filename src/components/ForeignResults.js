@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom";
 
-const ForeignResults = ({}) => {
+const ForeignResults = ({ englishMovie }) => {
   const { movieID } = useParams();
   return (
     <>
+
       <ul>
-        <h1>{movieID}</h1>;
-        {/* {something.map((singleEnglishMovie) => {
-          return <li>{singleEnglishMovie.original_title}</li>;
-        })} */}
+        <h1> {englishMovie.original_title} </h1>
+        <img src={`https://image.tmdb.org/t/p/w200/${englishMovie.poster_path}`}></img>
+        <p>{englishMovie.overview}</p>
       </ul>
+      <button> Save</button>
     </>
   );
 };

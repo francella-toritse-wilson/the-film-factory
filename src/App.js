@@ -9,6 +9,8 @@ import ForeignResults from "./components/ForeignResults.js";
 import { Route, Link, Routes, useNavigate } from "react-router-dom";
 
 function App() {
+  const [englishMovie, setEnglishMovie] = useState([]);
+
   const [displaySearchedFilms, setDisplaySearchedFilms] = useState([]);
 
   const handleMovieData = (e) => {
@@ -28,14 +30,14 @@ function App() {
           element={
             <MovieResults
               movies={displaySearchedFilms}
-              
+              setEnglishMovie={setEnglishMovie}
             />
           }
         />
 
         <Route
           path="/foreignResults/:movieID"
-          element={<ForeignResults  />}
+          element={<ForeignResults englishMovie ={englishMovie} />}
         />
 
         <Route path="/savedMovies" element={<MySavedMovies />} />
