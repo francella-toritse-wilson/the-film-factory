@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useState } from "react";
 import MovieResults from "./components/MovieResults.js";
 import "./App.css";
@@ -12,48 +12,9 @@ function App() {
 
   const [displaySearchedFilms, setDisplaySearchedFilms] = useState([]);
 
-  const handleMovieData =  (e) => {
+  const handleMovieData = (e) => {
     setDisplaySearchedFilms(e);
   }
-  // Initializng a state variable named films to hold our data from the api, along side its updater function on page load
-
-
-  // intitalizing a state variable to hold searched results
-  // const [searchedFilms, setSearchedFilms] = useState([]);
-
-  // // initializing a state variable to store a boolean to see if search was performed
-  // const [isSearchMade, setIsSearchMade] = useState(false);
-
-
-  // // Using the useEffect function here to call the sideeffct and include the depedency array to only call it once
-
-  // const navigate = useNavigate();
-  // const fetchSearchMovies = (keyword) => {
-  //   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
-
-  //   // calling our api data
-  //   axios({
-  //     url: "https://api.themoviedb.org/3/search/movie",
-  //     method: "GET",
-  //     params: {
-  //       api_key: apiKey,
-  //       query: keyword,
-  //       language: "en",
-  //       include_adult: false,
-  //       page: "1",
-  //     },
-  //   })
-  //     .then((res) => {
-  //       setSearchedFilms(res.data.results);
-  //       console.log(res.data.results);
-  //       setIsSearchMade(true);
-  //       navigate("/movieResults");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       console.log("Error detected!");
-  //     });
-  // };
 
   return (
     <>
@@ -62,7 +23,7 @@ function App() {
 
       <Routes>
         <Route
-          path="/"
+          path=""
           element={
             <Welcome />
           }
