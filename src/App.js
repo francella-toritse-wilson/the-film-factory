@@ -6,6 +6,7 @@ import Welcome from "./components/Welcome.js";
 import MySavedMovies from "./components/MySavedMovies.js";
 import Form from "./components/Form.js";
 import Nav from "./components/Nav.js";
+import ForeignResults from "./components/ForeignResults.js";
 import { Route, Link, Routes, useNavigate } from "react-router-dom";
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
           path="/movieResults"
           element={<MovieResults movies={displaySearchedFilms} />}
         />
+
+        <Route path="/movie/:movieID" element={<ForeignResults />} />
 
         <Route path="/savedMovies" element={<MySavedMovies />} />
       </Routes>
