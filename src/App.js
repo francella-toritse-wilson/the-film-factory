@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import MovieResults from "./components/MovieResults.js";
 import "./App.css";
@@ -10,39 +9,40 @@ import ForeignResults from "./components/ForeignResults.js";
 import { Route, Link, Routes, useNavigate } from "react-router-dom";
 
 function App() {
-
   const [displaySearchedFilms, setDisplaySearchedFilms] = useState([]);
 
   const handleMovieData = (e) => {
     setDisplaySearchedFilms(e);
-  }
+  };
 
   return (
     <>
       <Nav />
-      <Form name={handleMovieData}/>
+      <Form name={handleMovieData} />
 
       <Routes>
+        <Route path="" element={<Welcome />} />
+
         <Route
-          path=""
+          path="/movieResults"
           element={
-            <Welcome />
+            <MovieResults
+              movies={displaySearchedFilms}
+              
+            />
           }
         />
 
         <Route
-          path="/movieResults"
-          element={<MovieResults movies={displaySearchedFilms} />}
+          path="/foreignResults/:movieID"
+          element={<ForeignResults  />}
         />
-
-        <Route path="/movie/:movieID" element={<ForeignResults />} />
 
         <Route path="/savedMovies" element={<MySavedMovies />} />
       </Routes>
     </>
   );
-
-};
+}
 
 export default App;
 
