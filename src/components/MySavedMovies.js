@@ -22,6 +22,8 @@ const MySavedMovies = () => {
     });
   }, []);
 
+
+
   return (
     <div>
       <ul>
