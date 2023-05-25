@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
+
 const Form = ({ name }) => {
   const [userInput, setUserInput] = useState("");
 
@@ -36,6 +38,8 @@ const Form = ({ name }) => {
         const englishAndPoster = results.filter((obj) => {
           return obj.original_language === "en" && obj.poster_path
         });
+
+        // remember to add more instruction / clarity for the user so that they know they should search for an English-language film. if they search for a foreign-language film, something should happen (ie. foreign-language films are returned and rendered with accompanying text, or an error pops up)
 
         console.log(englishAndPoster);
 
