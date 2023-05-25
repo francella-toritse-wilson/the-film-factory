@@ -13,9 +13,6 @@ function App() {
 
   const [displaySearchedFilms, setDisplaySearchedFilms] = useState([]);
 
-  const [foreignMovie, setForeignMovie] = useState([]);
-
-
   const handleMovieData = (e) => {
     setDisplaySearchedFilms(e);
   };
@@ -34,14 +31,13 @@ function App() {
             <MovieResults
               movies={displaySearchedFilms}
               setEnglishMovie={setEnglishMovie}
-              setForeignMovie={setForeignMovie}
             />
           }
         />
 
         <Route
           path="/foreignResults/:movieID"
-          element={<ForeignResults englishMovie ={englishMovie} foreignMovie={foreignMovie}/>}
+          element={<ForeignResults englishMovie={englishMovie} />}
         />
 
         <Route path="/savedMovies" element={<MySavedMovies />} />

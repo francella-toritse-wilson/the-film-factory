@@ -34,7 +34,7 @@ const Form = ({ name }) => {
         setIsSearchMade(true);
         navigate("/movieResults");
         const englishAndPoster = results.filter((obj) => {
-          return obj.original_language === "en" && obj.poster_path !== null;
+          return obj.original_language === "en" && obj.poster_path
         });
 
         console.log(englishAndPoster);

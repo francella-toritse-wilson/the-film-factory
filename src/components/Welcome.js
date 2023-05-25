@@ -27,12 +27,12 @@ const Welcome = () => {
                 console.log(error);
                 console.log("Error detected!");
             });
-        };
+    };
     useEffect(() => fetchMovies(), []);
 
-            return (
-                <ul>
-                {films.map((individualMovie) => {
+    return (
+        <ul>
+            {films.map((individualMovie) => {
                 return (
                     <li key={individualMovie.id}>
                         <p>{individualMovie.title}</p>
