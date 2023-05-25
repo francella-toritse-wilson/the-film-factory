@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
-const MovieResults = ({ movies, setEnglishMovie }) => {
+const MovieResults = ({ movies, setEnglishMovie, setForeignMovieSuggestion }) => {
   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
   const [foreignMovie, setForeignMovie] = useState([]);
+
+  // const [foreignMovieSuggestion, setForeignMovieSuggestion] = useState([]);
 
   const handleClick = (event, movieId) => {
     axios({
@@ -62,6 +64,7 @@ const MovieResults = ({ movies, setEnglishMovie }) => {
         // });
 
         console.log(foreignFilteredResults)
+        setForeignMovieSuggestion(someNewArray);
       })
       .catch((error) => {
         console.log(`foreignResults error`);
