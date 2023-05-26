@@ -14,6 +14,8 @@ const MySavedMovies = () => {
       const newState = [];
       const data = response.val();
 
+      console.log(data);
+
       for (let key in data) {
         newState.push(data[key]);
       }
@@ -28,7 +30,9 @@ const MySavedMovies = () => {
         {films.map((individualSavedMovie) => {
           return (
             <li key={individualSavedMovie}>
-              <p>{individualSavedMovie}</p>
+              <p>You searched for {individualSavedMovie.englishMovie}</p>
+                <p>...and your result was {individualSavedMovie.title}</p>
+              <img src={`https://image.tmdb.org/t/p/w200/${individualSavedMovie.image}`} />
             </li>
           );
         })}

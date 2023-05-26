@@ -11,6 +11,8 @@ import { Route, Link, Routes, useNavigate } from "react-router-dom";
 function App() {
   const [englishMovie, setEnglishMovie] = useState([]);
 
+  const [foreignMovie, setForeignMovie] = useState([]);
+
   const [displaySearchedFilms, setDisplaySearchedFilms] = useState([]);
 
   const [foreignMovieSuggestion, setForeignMovieSuggestion] = useState([]);
@@ -26,7 +28,9 @@ function App() {
       <Form name={handleMovieData} />
 
       <Routes>
-        <Route path="" element={<Welcome />} />
+        <Route path="" element={<Welcome setEnglishMovie={setEnglishMovie}
+              setForeignMovieSuggestion={setForeignMovieSuggestion}
+              setForeignMovie={setForeignMovie}/>} />
 
         <Route
           path="/movieResults"
@@ -35,6 +39,7 @@ function App() {
               movies={displaySearchedFilms}
               setEnglishMovie={setEnglishMovie}
               setForeignMovieSuggestion={setForeignMovieSuggestion}
+              setForeignMovie={setForeignMovie}
             />
           }
         />

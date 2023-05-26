@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
-const MovieResults = ({ movies, setEnglishMovie, setForeignMovieSuggestion }) => {
+const MovieResults = ({ movies, setEnglishMovie, setForeignMovieSuggestion, setForeignMovie }) => {
   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
-  const [foreignMovie, setForeignMovie] = useState([]);
+  // const [foreignMovie, setForeignMovie] = useState([]);
+
+  const [searchedFilm, setSearchedFilm] = useState("");
 
   // const [foreignMovieSuggestion, setForeignMovieSuggestion] = useState([]);
 
@@ -26,6 +28,7 @@ const MovieResults = ({ movies, setEnglishMovie, setForeignMovieSuggestion }) =>
         const anythingButEnglish = res.data
        
         console.log(genreCode)
+        // the array of English-language movies
         setEnglishMovie(res.data);
 
         return axios({
@@ -48,7 +51,7 @@ const MovieResults = ({ movies, setEnglishMovie, setForeignMovieSuggestion }) =>
 
         const someNewArray = [];
 
-        const arrayLength = foreignFilteredResults.length < 3 ? foreignFilteredResults.length : 3
+        const arrayLength = foreignFilteredResults.length < 10 ? foreignFilteredResults.length : 10
         
         for (let i = 0; i < arrayLength; i++) {
         someNewArray.push(foreignFilteredResults[i])
@@ -70,6 +73,11 @@ const MovieResults = ({ movies, setEnglishMovie, setForeignMovieSuggestion }) =>
         console.log(`foreignResults error`);
       });
   };
+
+  // in the event that the array is empty (ie. in the case with Alien), we should either have a message rendered or an alert OR it should render a random foreign-language film 
+  // if enters gibberish and returns ZERO English-language film, there should be a message on the screen ("Sorry, we couldn't find that film for you!")
+  // display three new foreign-language films (ie. Titanic is 18 for Romance. If you search other romance films (such as, An Officer and a Gentleman), you get the same three foreign-language films as you did when you searched Titanic. This would be an issue if a user is searching English-language films in succession)
+
 
   return (
     <>
