@@ -23,7 +23,8 @@ function App() {
   };
 
   return (
-    <>
+    <div className="wrapper">
+
       <Nav />
       <Form name={handleMovieData} />
 
@@ -51,7 +52,7 @@ function App() {
 
         <Route path="/savedMovies" element={<MySavedMovies />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
