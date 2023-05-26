@@ -8,3 +8,4 @@ const SpecificForeignMovie = () => {
 }
 
 export default SpecificForeignMovie;
+

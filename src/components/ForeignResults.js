@@ -5,13 +5,14 @@ import firebase from './firebase';
 const ForeignResults = ({ englishMovie, foreignMovieSuggestion }) => {
   const { movieID } = useParams();
 
-  const handleClick = (title, image) => {
+  const handleClick = (title, image, englishMovie) => {
     console.log("click!")
     const database = getDatabase(firebase);
     const dbRef = ref(database);
     const movieInfo = {
       title,
-      image
+      image,
+      englishMovie
     }
      push(dbRef, movieInfo);
   }
@@ -38,7 +39,7 @@ const ForeignResults = ({ englishMovie, foreignMovieSuggestion }) => {
               <h1> {singleForeignMovieSuggestion.title} </h1>
               <img src={`https://image.tmdb.org/t/p/w200/${singleForeignMovieSuggestion.poster_path}`}></img>
               <p>{singleForeignMovieSuggestion.overview}</p>
-              <button onClick={() => handleClick(singleForeignMovieSuggestion.title, singleForeignMovieSuggestion.poster_path)}>Like this</button>
+              <button onClick={() => handleClick(singleForeignMovieSuggestion.title, singleForeignMovieSuggestion.poster_path, englishMovie.original_title)}>Like this</button>
             </li>
             </>
     
