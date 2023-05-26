@@ -4,10 +4,10 @@ import axios from "axios";
 
 
 
-const Form = ({ name }) => {
+const Form = ({ name, setSearchedFilms }) => {
   const [userInput, setUserInput] = useState("");
 
-  const [searchedFilms, setSearchedFilms] = useState([]);
+  // const [searchedFilms, setSearchedFilms] = useState([]);
 
   // initializing a state variable to store a boolean to see if search was performed
   const [isSearchMade, setIsSearchMade] = useState(false);
@@ -75,6 +75,7 @@ const Form = ({ name }) => {
         id="searchField"
         value={userInput}
       />
+      <p>Remember to search and english language film</p>
       <button>Search</button>
     </form>
   );

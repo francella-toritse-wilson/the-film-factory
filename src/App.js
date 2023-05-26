@@ -6,10 +6,12 @@ import MySavedMovies from "./components/MySavedMovies.js";
 import Form from "./components/Form.js";
 import Nav from "./components/Nav.js";
 import ForeignResults from "./components/ForeignResults.js";
+import RootErrorPage from "./components/RootErrorPage.js";
 import { Route, Link, Routes, useNavigate } from "react-router-dom";
 
 function App() {
   const [englishMovie, setEnglishMovie] = useState([]);
+  const [searchedFilms, setSearchedFilms] = useState([]);
 
   const [foreignMovie, setForeignMovie] = useState([]);
 
@@ -24,14 +26,20 @@ function App() {
 
   return (
     <div className="wrapper">
-
       <Nav />
-      <Form name={handleMovieData} />
+      <Form name={handleMovieData} setSearchedFilms={setSearchedFilms} />
 
       <Routes>
-        <Route path="" element={<Welcome setEnglishMovie={setEnglishMovie}
+        <Route
+          path=""
+          element={
+            <Welcome
+              setEnglishMovie={setEnglishMovie}
               setForeignMovieSuggestion={setForeignMovieSuggestion}
-              setForeignMovie={setForeignMovie}/>} />
+              setForeignMovie={setForeignMovie}
+            />
+          }
+        />
 
         <Route
           path="/movieResults"
@@ -41,16 +49,24 @@ function App() {
               setEnglishMovie={setEnglishMovie}
               setForeignMovieSuggestion={setForeignMovieSuggestion}
               setForeignMovie={setForeignMovie}
+              searchedFilms={searchedFilms}
             />
           }
         />
 
         <Route
           path="/foreignResults/:movieID"
-          element={<ForeignResults englishMovie={englishMovie} foreignMovieSuggestion={foreignMovieSuggestion}/>}
+          element={
+            <ForeignResults
+              englishMovie={englishMovie}
+              foreignMovieSuggestion={foreignMovieSuggestion}
+              foreignMovie={foreignMovie}
+            />
+          }
         />
 
         <Route path="/savedMovies" element={<MySavedMovies />} />
+        <Route path="*" element={<RootErrorPage/>}/> 
       </Routes>
     </div>
   );

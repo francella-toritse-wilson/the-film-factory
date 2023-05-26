@@ -102,7 +102,7 @@ const Welcome = ({setEnglishMovie, setForeignMovieSuggestion, setForeignMovie}) 
     useEffect(() => fetchMovies(), []);
 
     return (
-        <ul>
+        <ul className="trendingList">
             {films.map((individualMovie) => {
                 return (
                     <li onClick={(event) => handleClick(event, individualMovie.id)} key={individualMovie.id}>
