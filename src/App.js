@@ -19,7 +19,6 @@ function App() {
 
   const [foreignMovieSuggestion, setForeignMovieSuggestion] = useState([]);
 
-
   const handleMovieData = (e) => {
     setDisplaySearchedFilms(e);
   };
@@ -27,6 +26,7 @@ function App() {
   return (
     <div className="wrapper">
       <Nav />
+
       <Form name={handleMovieData} setSearchedFilms={setSearchedFilms} />
 
       <Routes>
@@ -66,8 +66,11 @@ function App() {
         />
 
         <Route path="/savedMovies" element={<MySavedMovies />} />
-        <Route path="*" element={<RootErrorPage/>}/> 
+        <Route path="*" element={<RootErrorPage />} />
       </Routes>
+      <footer> 
+        Created by Toritse, Wilson & Francella @ Juno College
+      </footer>
     </div>
   );
 }
