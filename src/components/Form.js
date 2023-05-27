@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Form = ({ name, setSearchedFilms }) => {
   const [userInput, setUserInput] = useState("");
@@ -32,11 +32,11 @@ const Form = ({ name, setSearchedFilms }) => {
     })
       .then((res) => {
         const results = res.data.results;
-        console.log(results)
+        console.log(results);
         setIsSearchMade(true);
         navigate("/movieResults");
         const englishAndPoster = results.filter((obj) => {
-          return obj.original_language === "en" && obj.poster_path
+          return obj.original_language === "en" && obj.poster_path;
         });
 
         // remember to add more instruction / clarity for the user so that they know they should search for an English-language film. if they search for a foreign-language film, something should happen (ie. foreign-language films are returned and rendered with accompanying text, or an error pops up)
@@ -51,7 +51,6 @@ const Form = ({ name, setSearchedFilms }) => {
         console.log("Error detected!");
       });
   };
-
 
   const handleSubmit = (event) => {
     fetchSearchMovies(userInput);
@@ -68,15 +67,19 @@ const Form = ({ name, setSearchedFilms }) => {
     <form onSubmit={handleSubmit}>
       <legend>What are you looking for?</legend>
       <label htmlFor="search"></label>
-      <input
-        onChange={handleUserInput}
-        type="text"
-        name="search"
-        id="searchField"
-        value={userInput}
-      />
-      <p>Remember to search and english language film</p>
-      <button>Search</button>
+      <div className="searchContainer">
+        <FontAwesomeIcon  className="searchIcon"icon={faSearch} />
+        <input
+          onChange={handleUserInput}
+          type="text"
+          name="search"
+          id="searchField"
+          value={userInput}
+          placeholder=" What do you have in mind? "
+        />
+      </div>
+
+      <button className="searchButton">Search</button>
     </form>
   );
 };
