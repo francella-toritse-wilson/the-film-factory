@@ -10,6 +10,9 @@ const ForeignResults = ({
 }) => {
   const { movieID } = useParams();
 
+  // stretch goal error handling for foreign search results, remount movie data on page reload
+
+
   const handleClick = (title, image, englishMovie) => {
     console.log("click!");
     const database = getDatabase(firebase);
