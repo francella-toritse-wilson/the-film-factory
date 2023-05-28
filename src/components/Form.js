@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Form = ({ name, setSearchedFilms }) => {
-  const [userInput, setUserInput] = useState("");
+const Form = ({ name, setSearchedFilms, setUserInput, userInput }) => {
+  // const [userInput, setUserInput] = useState("");
 
   // const [searchedFilms, setSearchedFilms] = useState([]);
 
@@ -55,7 +55,9 @@ const Form = ({ name, setSearchedFilms }) => {
   const handleSubmit = (event) => {
     fetchSearchMovies(userInput);
     event.preventDefault();
-    setUserInput("");
+    setTimeout(() => {
+      setUserInput("");
+    }, 10000); // to make the input text dissapear 
   };
 
   const handleUserInput = (event) => {
@@ -64,7 +66,11 @@ const Form = ({ name, setSearchedFilms }) => {
   };
 
   return (
-    <section className="formContainer">
+    <div className="formContainer">
+      <div className="formHeader">
+        <h2>Welcome to The Film Factory!</h2>
+        <h3> Search your favourite English language film, get results from around the world!</h3>
+      </div>
       <form onSubmit={handleSubmit}>
         <legend>What are you looking for?</legend>
         <label htmlFor="search"></label>
@@ -79,12 +85,11 @@ const Form = ({ name, setSearchedFilms }) => {
             placeholder=" What do you have in mind? "
           />
         </div>
-      </form>
-      <div className="buttonContainer">
+
         <button className="searchButton">Search</button>
-      </div>
-    </section>
-    
+      </form>
+      
+    </div>
   );
 };
 

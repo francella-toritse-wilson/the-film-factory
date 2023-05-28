@@ -7,11 +7,12 @@ import Form from "./components/Form.js";
 import Nav from "./components/Nav.js";
 import ForeignResults from "./components/ForeignResults.js";
 import RootErrorPage from "./components/RootErrorPage.js";
-import { Route, Link, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [englishMovie, setEnglishMovie] = useState([]);
   const [searchedFilms, setSearchedFilms] = useState([]);
+  const [userInput, setUserInput] = useState("");
 
   const [foreignMovie, setForeignMovie] = useState([]);
 
@@ -26,8 +27,8 @@ function App() {
   return (
     <div className="wrapper">
       <Nav />
-
-      <Form name={handleMovieData} setSearchedFilms={setSearchedFilms} />
+      <Form name={handleMovieData} setSearchedFilms={setSearchedFilms} setUserInput={setUserInput} userInput={userInput}
+/>
 
       <Routes>
         <Route
@@ -50,6 +51,7 @@ function App() {
               setForeignMovieSuggestion={setForeignMovieSuggestion}
               setForeignMovie={setForeignMovie}
               searchedFilms={searchedFilms}
+              userInput={userInput}
             />
           }
         />

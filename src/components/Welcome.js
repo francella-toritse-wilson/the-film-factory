@@ -110,12 +110,7 @@ const Welcome = ({
 
   return (
     <div className="welcomeContainer">
-      <div className="movieDisplay">
-        <div className="textcontainer">
-        </div>
-        <img />
-      </div>
-
+      <h2>Trending Movies</h2>
       <ul className="trendingList">
         {films.map((individualMovie) => {
           return (
