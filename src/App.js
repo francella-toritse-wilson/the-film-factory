@@ -69,7 +69,9 @@ function App() {
         <Route path="*" element={<RootErrorPage />} />
       </Routes>
       <footer> 
-        Created by Toritse, Wilson & Francella @ Juno College
+        <div className="footerText">
+          <p>Created by Toritse, Wilson & Francella @ Juno College</p>
+        </div>
       </footer>
     </div>
   );

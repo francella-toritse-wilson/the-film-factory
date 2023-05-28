@@ -1,9 +1,9 @@
 const Error =() => { 
     return ( 
 
-        <div>
-            <p>Sorry, No Results! </p>
-        </div>
+        <section className="error">
+            <p>Sorry, No Results!</p>
+        </section>
 
     )
 }

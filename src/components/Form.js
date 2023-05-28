@@ -64,23 +64,27 @@ const Form = ({ name, setSearchedFilms }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <legend>What are you looking for?</legend>
-      <label htmlFor="search"></label>
-      <div className="searchContainer">
-        <FontAwesomeIcon  className="searchIcon"icon={faSearch} />
-        <input
-          onChange={handleUserInput}
-          type="text"
-          name="search"
-          id="searchField"
-          value={userInput}
-          placeholder=" What do you have in mind? "
-        />
+    <section className="formContainer">
+      <form onSubmit={handleSubmit}>
+        <legend>What are you looking for?</legend>
+        <label htmlFor="search"></label>
+        <div className="searchContainer">
+          <FontAwesomeIcon  className="searchIcon"icon={faSearch} />
+          <input
+            onChange={handleUserInput}
+            type="text"
+            name="search"
+            id="searchField"
+            value={userInput}
+            placeholder=" What do you have in mind? "
+          />
+        </div>
+      </form>
+      <div className="buttonContainer">
+        <button className="searchButton">Search</button>
       </div>
-
-      <button className="searchButton">Search</button>
-    </form>
+    </section>
+    
   );
 };
 

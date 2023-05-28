@@ -112,7 +112,6 @@ const Welcome = ({
     <div className="welcomeContainer">
       <div className="movieDisplay">
         <div className="textcontainer">
-          <p></p>
         </div>
         <img />
       </div>

@@ -2,6 +2,7 @@ import { Route, Link, Routes } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
+
 const Nav = () => {
   return (
     <nav>
@@ -11,10 +12,10 @@ const Nav = () => {
         </ul>
         <ul className="navigationList">
           <li>
-            <Link to="/"> Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/savedMovies"> My Movies </Link>
+            <Link to="/savedMovies">My Movies</Link>
           </li>
         </ul>
       </div>

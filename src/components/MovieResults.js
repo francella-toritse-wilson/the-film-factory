@@ -19,6 +19,7 @@ const MovieResults = ({
   const handleClick = (event, movieId) => {
     axios({
       // add error handling in case api can't connect - stretchgoal
+      // new bug - whenever you try to mess with the API link in line 23, you can still search for your given film, but you are directed to the page and results for the film Crater
       url: `https://api.themoviedb.org/3/movie/${movieId}`,
       method: "GET",
       params: {
