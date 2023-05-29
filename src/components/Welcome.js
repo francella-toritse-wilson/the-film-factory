@@ -6,6 +6,7 @@ const Welcome = () => {
   const [films, setFilms] = useState([]);
 
   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
+
   const fetchMovies = () => {
     axios({
       url: "https://api.themoviedb.org/3/discover/movie",
@@ -25,7 +26,7 @@ const Welcome = () => {
         alert("Error detected!");
       });
   };
-  useEffect(() => fetchMovies(), []);
+  useEffect(fetchMovies, [apiKey]);
 
   return (
     <div className="welcomeContainer">
