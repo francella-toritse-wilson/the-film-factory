@@ -614,6 +614,11 @@ footer {
     }
 
     .englishMovieText,
+    .foreignMovieText {
+        margin-left: 0px;
+    }
+
+    .englishMovieText,
     .foreignMovieText,
     .foreignMovieList h2 {
         text-align: center;
