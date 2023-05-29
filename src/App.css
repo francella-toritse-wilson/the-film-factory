@@ -390,11 +390,12 @@ nav h1 {
 
 form {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   width: 95%; 
   margin: 0 auto;
+  /* padding: 0 20px; */
 }
 
 legend {
@@ -521,6 +522,8 @@ footer {
     background-color: #630330;
     color: white;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 
 .foreignResults button:hover {
@@ -599,8 +602,8 @@ footer {
 
 @media (max-width: 1024px) {
     form {
-        width: 100%;
-        margin: 0 0 0 10px;
+        width: 95%;
+        /* margin: 0 0 0 10px; */
     }
 } 
 
@@ -609,6 +612,18 @@ footer {
     .foreignMovieList li {
         flex-direction: column;
     }
+
+    .englishMovieText,
+    .foreignMovieText,
+    .foreignMovieList h2 {
+        text-align: center;
+    }
+
+    .englishMovieText button,
+    .foreignMovieText button {
+        margin: 0 auto;
+    }
+
     .imageContainer {
         display: flex;
         max-width: 660px;
@@ -628,9 +643,9 @@ footer {
     }
 
     .searchContainer {
-        margin-right: 20px;
+        margin: 0 auto;
         max-width: 540px;
-        width: 100%;
+        width: 95%;
     }
     button {
         max-width: 95px;
@@ -686,6 +701,7 @@ footer {
         padding: 0;
     }
 }
+
 
 .movieResultsContainer {
   display: grid;
