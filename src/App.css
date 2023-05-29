@@ -272,6 +272,7 @@ nav {
 }
 .section {
   display: flex;
+  width: 100%;
 }
 .navigationList {
   display: flex;
@@ -280,6 +281,29 @@ nav {
   margin: 15px 0px;
   padding: 0px 20px;
 }
+
+.navList.open {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 120px 0;
+}
+
+/* .navListItems.display {
+    display: flex;
+    flex-direction: column;
+} */
+
+.navListItems.display {
+    display: flex;
+    flex-direction: column;
+    margin-top: -10px;
+    margin-left: -40px;
+}
+
+.navListItems {
+    display: flex;
+}
+
 .appLogo {
   display: flex;
   justify-content: center;
@@ -354,6 +378,10 @@ nav h1 {
   align-items: center;
   margin: 15px 0px;
   padding: 0px 20px;
+}
+
+.hamburgerIcon {
+    display: none;
 }
 
 /* Form Styling  */
@@ -625,6 +653,47 @@ footer {
     }
     .searchButton {
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 760px) {
+    .hamburgerIcon {
+        display: block;
+        cursor: pointer;
+        position: relative;
+    }
+    .userProfile,
+    .profileIcon {
+        display: none
+    }
+    .navListItems {
+        display: none;
+    }
+    .appLogo {
+        width: 100%;
+        max-width: 760px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .section {
+        width: 100%;
+        max-width: 760px;
+        display: flex;
+        flex-direction: column;
+    }
+    .navlistItems.display {
+        margin-top: 0px;
+    }
+    .navListItems.display li {
+        display: flex;
+        flex-direction: column;
+    }
+    .navigationList {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin: 0;
+        padding: 0;
     }
 }
 
