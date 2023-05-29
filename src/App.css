@@ -374,7 +374,7 @@ nav h1 {
 
 .userProfile {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   margin: 15px 0px;
   padding: 0px 20px;
@@ -570,6 +570,8 @@ footer {
     height: 100%;
     padding: 30px;
     display: flex;
+    max-width: 1369px;
+    width: 100%;
 }
 
 .foreignMovie ul {

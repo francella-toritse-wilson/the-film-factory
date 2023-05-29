@@ -5,78 +5,75 @@ import Error from "./Error.js";
 
 const MovieResults = ({
   movies,
-  setEnglishMovie,
-  setForeignMovieSuggestion,
-  setForeignMovie,
   searchedFilms,
   userInput,
 }) => {
-  const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
+  // const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
   // const [searchedFilm, setSearchedFilm] = useState("");
 
   // const [error, setError] = useState([]);
 
-  const handleClick = (event, movieId) => {
-    axios({
-      // add error handling in case api can't connect - stretchgoal
-      // new bug - whenever you try to mess with the API link in line 23, you can still search for your given film, but you are directed to the page and results for the film Crater
-      url: `https://api.themoviedb.org/3/movie/${movieId}`,
-      method: "GET",
-      params: {
-        api_key: apiKey,
-        language: "en-US",
-      },
-    })
-      .then((res) => {
-        console.log(res.data);
-        const genreCode = res.data.genres
-          .map((obj) => {
-            return obj.id;
-          })
-          .join();
-        console.log(genreCode);
-        // the array of English-language movies
-        setEnglishMovie(res.data);
+  // const handleClick = (event, movieId) => {
+  //   axios({
+  //     // add error handling in case api can't connect - stretchgoal
+  //     // new bug - whenever you try to mess with the API link in line 23, you can still search for your given film, but you are directed to the page and results for the film Crater
+  //     url: `https://api.themoviedb.org/3/movie/${movieId}`,
+  //     method: "GET",
+  //     params: {
+  //       api_key: apiKey,
+  //       language: "en-US",
+  //     },
+  //   })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       const genreCode = res.data.genres
+  //         .map((obj) => {
+  //           return obj.id;
+  //         })
+  //         .join();
+  //       console.log(genreCode);
+  //       // the array of English-language movies
+  //       setEnglishMovie(res.data);
 
-        return axios({
-          url: `https://api.themoviedb.org/3/discover/movie`,
-          method: "GET",
-          params: {
-            api_key: apiKey,
-            language: "en-US",
-            with_genres: genreCode,
-            page: "1",
-          },
-        });
-      })
-      .then((response) => {
-        console.log(response.data.results);
-        setForeignMovie(response.data.results);
-        // setError(true);
-        const foreignFilteredResults = response.data.results.filter((obj) => {
-          return obj.original_language !== "en";
-        });
+  //       return axios({
+  //         url: `https://api.themoviedb.org/3/discover/movie`,
+  //         method: "GET",
+  //         params: {
+  //           api_key: apiKey,
+  //           language: "en-US",
+  //           with_genres: genreCode,
+  //           page: "1",
+  //         },
+  //       });
+  //     })
+  //     .then((response) => {
+  //       console.log(response.data.results);
+  //       setForeignMovie(response.data.results);
+  //       // setError(true);
+  //       const foreignFilteredResults = response.data.results.filter((obj) => {
+  //         return obj.original_language !== "en";
+  //       });
 
-        const someNewArray = [];
+  //       const someNewArray = [];
 
-        const arrayLength =
-          foreignFilteredResults.length < 10
-            ? foreignFilteredResults.length
-            : 10;
+  //       const arrayLength =
+  //         foreignFilteredResults.length < 10
+  //           ? foreignFilteredResults.length
+  //           : 10;
 
-        for (let i = 0; i < arrayLength; i++) {
-          someNewArray.push(foreignFilteredResults[i]);
-        }
-        console.log(someNewArray);
+  //       for (let i = 0; i < arrayLength; i++) {
+  //         someNewArray.push(foreignFilteredResults[i]);
+  //       }
+  //       console.log(someNewArray);
 
-        console.log(foreignFilteredResults);
-        setForeignMovieSuggestion(someNewArray);
-      })
-      .catch((error) => {
-        console.log(`foreignResults error`);
-      });
-  };
+  //       console.log(foreignFilteredResults);
+  //       setForeignMovieSuggestion(someNewArray);
+  //     })
+  //     .catch((error) => {
+  //       console.log(`foreignResults error`);
+  //     });
+  // };
 
   // in the event that the array is empty (ie. in the case with Alien), we should either have a message rendered or an alert OR it should render a random foreign-language film
   // if enters gibberish and returns ZERO English-language film, there should be a message on the screen ("Sorry, we couldn't find that film for you!")
@@ -96,7 +93,7 @@ const MovieResults = ({
             return (
                 // <h2>{`You are searching for movies containing ${userInput}`}</h2>
               <li className="searchedList"
-                onClick={(event) => handleClick(event, individualMovie.id)}
+                // onClick={(event) => handleClick(event, individualMovie.id)}
                 key={individualMovie.id}
               >
 
