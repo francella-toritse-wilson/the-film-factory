@@ -1,5 +1,12 @@
+# About The Film Factory
 
+Created in May 2023 as part of our final project for Juno College's Web Development Bootcamp, the aim of The Film Factory is to create a user-friendly platform that helps individuals discover and watch non-English films. Many people express interest in exploring movies from different countries, but they often face difficulties in finding these films. To address this issue, this project proposes a solution that allows users to search for a movie they already know and then suggests foreign films based on their selection.
 
+The developers involved in this project were Wilson Choi, Toritse Tuedor, and Francella Fiallos.
+
+Enjoy!
+
+Live site: https://ftw-project-four.netlify.app
 
 
 
