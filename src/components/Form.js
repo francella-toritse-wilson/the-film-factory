@@ -8,7 +8,7 @@ const Form = ({ name, setSearchedFilms, setUserQuery }) => {
   const [userInput, setUserInput] = useState("");
 
   // initializing a state variable to store a boolean to see if search was performed
-  const [isSearchMade, setIsSearchMade] = useState(false);
+  // const [isSearchMade, setIsSearchMade] = useState(false);
 
   const navigate = useNavigate();
   const fetchSearchMovies = (userInput) => {
@@ -27,7 +27,7 @@ const Form = ({ name, setSearchedFilms, setUserQuery }) => {
     })
       .then((res) => {
         const results = res.data.results;
-        setIsSearchMade(true);
+        // setIsSearchMade(true);
         navigate("/movieResults");
         const englishAndPoster = results.filter((obj) => {
           return obj.original_language === "en" && obj.poster_path;

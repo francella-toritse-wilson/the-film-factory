@@ -10,7 +10,6 @@ const ForeignResults = () => {
   const { movieID } = useParams();
 
   const [foreignMovieSuggestion, setForeignMovieSuggestion] = useState([]);
-  const [foreignMovie, setForeignMovie] = useState([]);
   const [englishMovie, setEnglishMovie] = useState([]);
 
   useEffect(() => {
@@ -44,7 +43,6 @@ const ForeignResults = () => {
         });
       })
       .then((response) => {
-        setForeignMovie(response.data.results)
         // filtering array of movies that contain the same genreCode as the user's search and then filtered based on the following conditional logic: the films are NOT in English 
         const foreignFilteredResults = response.data.results.filter((obj) => {
           return obj.original_language !== "en";
@@ -65,7 +63,7 @@ const ForeignResults = () => {
       .catch((error) => {
         alert("ForeignResults error!");
       });
-  }, []);
+  }, [movieID]);
 
 
   const handleClick = (title, image, englishMovie) => {
