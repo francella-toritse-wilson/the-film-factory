@@ -5,14 +5,14 @@ import axios from "axios";
 const Welcome = () => {
   const [films, setFilms] = useState([]);
 
-  const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
+//   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
   const fetchMovies = () => {
     axios({
       url: "https://api.themoviedb.org/3/discover/movie",
       method: "GET",
       params: {
-        api_key: apiKey,
+        api_key: `89517ad5b04450b82d2f07f6f3e3d03b`,
         language: "en-US",
         include_adult: false,
         page: "1",
@@ -26,7 +26,7 @@ const Welcome = () => {
         alert("Error detected!");
       });
   };
-  useEffect(fetchMovies, [apiKey]);
+  useEffect(() => fetchMovies(), []);
 
   return (
     <div className="welcomeContainer">

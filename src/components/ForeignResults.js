@@ -13,12 +13,12 @@ const ForeignResults = () => {
   const [englishMovie, setEnglishMovie] = useState([]);
 
   useEffect(() => {
-    const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
+    // const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
     axios({
       url: `https://api.themoviedb.org/3/movie/${movieID}`,
       method: "GET",
       params: {
-        api_key: apiKey,
+        api_key: `89517ad5b04450b82d2f07f6f3e3d03b`,
         language: "en-US",
       },
     })
@@ -35,7 +35,7 @@ const ForeignResults = () => {
           url: `https://api.themoviedb.org/3/discover/movie`,
           method: "GET",
           params: {
-            api_key: apiKey,
+            api_key: `89517ad5b04450b82d2f07f6f3e3d03b`,
             language: "en-US",
             with_genres: genreCode,
             page: "1",
