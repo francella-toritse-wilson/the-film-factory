@@ -12,7 +12,7 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   const [englishMovie, setEnglishMovie] = useState([]);
   const [searchedFilms, setSearchedFilms] = useState([]);
-  const [userInput, setUserInput] = useState("");
+  const [userQuery, setUserQuery] = useState("");
 
   const [foreignMovie, setForeignMovie] = useState([]);
 
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="wrapper">
       <Nav />
-      <Form name={handleMovieData} setSearchedFilms={setSearchedFilms} setUserInput={setUserInput} userInput={userInput}
+      <Form name={handleMovieData} setSearchedFilms={setSearchedFilms} setUserQuery={setUserQuery}
 />
 
       <Routes>
@@ -51,7 +51,7 @@ function App() {
               setForeignMovieSuggestion={setForeignMovieSuggestion}
               setForeignMovie={setForeignMovie}
               searchedFilms={searchedFilms}
-              userInput={userInput}
+              userQuery={userQuery}
             />
           }
         />

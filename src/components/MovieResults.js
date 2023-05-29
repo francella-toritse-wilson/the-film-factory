@@ -9,7 +9,7 @@ const MovieResults = ({
   setForeignMovieSuggestion,
   setForeignMovie,
   searchedFilms,
-  userInput,
+  userQuery,
 }) => {
   const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
@@ -46,7 +46,7 @@ const MovieResults = ({
             api_key: apiKey,
             language: "en-US",
             with_genres: genreCode,
-            page: "1",
+            // page: "2",
           },
         });
       })
@@ -87,14 +87,14 @@ const MovieResults = ({
   
   return (
     <div className="movieResultsSection">       
-     {/* {userInput && (<h2> Showing results for {userInput}</h2>)} */}
+      <h2>{`You are searching for movies containing "${userQuery}"`}</h2>
       <ul className="movieResultsContainer">
         {searchedFilms && searchedFilms.length === 0 ? (
           <Error />
         ) : (
           movies.map((individualMovie) => {
             return (
-                // <h2>{`You are searching for movies containing ${userInput}`}</h2>
+              <>
               <li className="searchedList"
                 onClick={(event) => handleClick(event, individualMovie.id)}
                 key={individualMovie.id}
@@ -108,6 +108,8 @@ const MovieResults = ({
                 </Link>
                 <p>{individualMovie.title}</p>
               </li>
+              
+              </>
             );
           })
         )}
