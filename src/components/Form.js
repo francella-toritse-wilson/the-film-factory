@@ -4,8 +4,8 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Form = ({ name, setSearchedFilms, setUserInput, userInput }) => {
-  // const [userInput, setUserInput] = useState("");
+const Form = ({ name, setSearchedFilms, setUserQuery }) => {
+  const [userInput, setUserInput] = useState("");
 
   // const [searchedFilms, setSearchedFilms] = useState([]);
 
@@ -55,9 +55,11 @@ const Form = ({ name, setSearchedFilms, setUserInput, userInput }) => {
   const handleSubmit = (event) => {
     fetchSearchMovies(userInput);
     event.preventDefault();
-    setTimeout(() => {
+    setUserQuery(userInput);
+    // setTimeout(() => {
       setUserInput("");
-    }, 10000); // to make the input text dissapear 
+      console.log("hello")
+      // }, 10000); // to make the input text dissapear 
   };
 
   const handleUserInput = (event) => {
