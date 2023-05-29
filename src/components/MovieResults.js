@@ -83,11 +83,10 @@ const MovieResults = ({
   // display three new foreign-language films (ie. Titanic is 18 for Romance. If you search other romance films (such as, An Officer and a Gentleman), you get the same three foreign-language films as you did when you searched Titanic. This would be an issue if a user is searching English-language films in succession)
 
 
-  // need to keep userInput dynamic in h2 return, but can be cleared in form
   
   return (
     <div className="movieResultsSection">       
-      <h2>{`You are searching for movies containing "${userQuery}"`}</h2>
+      <h2>{`Here are your results for "${userQuery}"`}</h2>
       <ul className="movieResultsContainer">
         {searchedFilms && searchedFilms.length === 0 ? (
           <Error />
@@ -108,7 +107,6 @@ const MovieResults = ({
                 </Link>
                 <p>{individualMovie.title}</p>
               </li>
-              
               </>
             );
           })
