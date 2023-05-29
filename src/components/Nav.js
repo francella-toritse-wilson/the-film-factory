@@ -1,4 +1,4 @@
-import { Route, Link, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -6,13 +6,10 @@ import { useState } from 'react';
 
 
 const Nav = () => {
-
   const [isClicked, setIsClicked] = useState(false);
-
   const handleToggle = () => {
     setIsClicked(!isClicked);
   }
-
   return (
     <nav className={`navList ${isClicked ? 'open' : ''}`}>
       <div className="section">
@@ -33,10 +30,8 @@ const Nav = () => {
               <Link to="/savedMovies">My Movies</Link>
             </li>
           </ul>
-        </div>
-        
+        </div> 
       </div>
-
       <ul className="userProfile">
         <li>
           <FontAwesomeIcon

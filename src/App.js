@@ -10,15 +10,11 @@ import RootErrorPage from "./components/RootErrorPage.js";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [englishMovie, setEnglishMovie] = useState([]);
   const [searchedFilms, setSearchedFilms] = useState([]);
   const [userQuery, setUserQuery] = useState("");
 
-  const [foreignMovie, setForeignMovie] = useState([]);
-
   const [displaySearchedFilms, setDisplaySearchedFilms] = useState([]);
 
-  const [foreignMovieSuggestion, setForeignMovieSuggestion] = useState([]);
 
   const handleMovieData = (e) => {
     setDisplaySearchedFilms(e);
@@ -35,9 +31,6 @@ function App() {
           path=""
           element={
             <Welcome
-              setEnglishMovie={setEnglishMovie}
-              setForeignMovieSuggestion={setForeignMovieSuggestion}
-              setForeignMovie={setForeignMovie}
             />
           }
         />
@@ -47,9 +40,6 @@ function App() {
           element={
             <MovieResults
               movies={displaySearchedFilms}
-              setEnglishMovie={setEnglishMovie}
-              setForeignMovieSuggestion={setForeignMovieSuggestion}
-              setForeignMovie={setForeignMovie}
               searchedFilms={searchedFilms}
               userQuery={userQuery}
             />
@@ -60,9 +50,6 @@ function App() {
           path="/foreignResults/:movieID"
           element={
             <ForeignResults
-              englishMovie={englishMovie}
-              foreignMovieSuggestion={foreignMovieSuggestion}
-              foreignMovie={foreignMovie}
             />
           }
         />
@@ -81,4 +68,3 @@ function App() {
 
 export default App;
 
-// error handling, if array returns with 0 indexed items, show something like "no movies found with that title?"

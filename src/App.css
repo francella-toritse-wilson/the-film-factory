@@ -23,9 +23,7 @@ figure,
 main {
   display: block;
 }
-/* figure {
-  margin: 1em 40px;
-} */
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -252,7 +250,6 @@ div img {
 
 .wrapper {
   max-width: 100%;
-  /* width: 90%; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -260,10 +257,7 @@ div img {
 }
 
 nav {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
   display: flex;
-  /* gap: 10px; */
   justify-content: space-between;
   align-items: center;
   background-color: #630330;
@@ -287,11 +281,6 @@ nav {
     flex-direction: column;
     padding: 0 0 120px 0;
 }
-
-/* .navListItems.display {
-    display: flex;
-    flex-direction: column;
-} */
 
 .navListItems.display {
     display: flex;
@@ -351,7 +340,6 @@ nav h1 {
     --bg-size: 400%;
     --color-one: hsl(0, 100%, 100%);
     --color-two: hsl(0, 0%, 46%);
-    /* color: black; */
     margin: 0px 0px;
     font-family: "Righteous", cursive;
     background: linear-gradient(
@@ -374,7 +362,7 @@ nav h1 {
 
 .userProfile {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   margin: 15px 0px;
   padding: 0px 20px;
@@ -397,7 +385,7 @@ nav h1 {
 .formHeader h2, 
 .formHeader h3 {
   text-align: center;
-
+  padding: 0px 10px;
 }
 
 form {
@@ -436,7 +424,7 @@ input {
   border-radius: 10px;
   border: 1px solid #630330;
 }
-.buttonContainer {
+.formContainer .buttonContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -570,6 +558,8 @@ footer {
     height: 100%;
     padding: 30px;
     display: flex;
+    max-width: 1369px;
+    width: 100%;
 }
 
 .foreignMovie ul {
@@ -775,7 +765,7 @@ footer {
         align-items: center;
         border: 1px rgba(255, 255, 255, 0.22) solid;
         border-radius: 5px;
-        margin: 3px 20px;
+        /* margin: 3px 20px; */
         font-size: 14px;
         width: 300px;
         height: 400px;
@@ -792,6 +782,7 @@ footer {
 .savedMovieList p {
       text-align: center;
         font-weight: bold;
+        padding: 0px 10px;
 }
 
 .savedMovieList span {
