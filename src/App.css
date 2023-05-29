@@ -390,12 +390,8 @@ nav h1 {
 
 form {
   display: flex;
-  /* flex-direction: row;
-  justify-content: center;
-  align-items: center; */
   width: 95%; 
   margin: 0 auto;
-  /* padding: 0 20px; */
 }
 
 legend {
@@ -454,7 +450,6 @@ input[type="text"]::placeholder {
 
 .trendingList {
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
     grid-template-columns: repeat(auto-fit, 310px);
     gap: 3px;
     margin: 0 auto;
@@ -471,7 +466,6 @@ input[type="text"]::placeholder {
   align-items: center;
   border: 1px rgba(255, 255, 255, 0.22) solid;
   border-radius: 5px;
-  /* margin: 3px 20px; */
   margin: 3px;
   font-size: 14px;
   width: 300px;
@@ -573,11 +567,6 @@ footer {
     gap: 10px;
 }
 
-/* keeping this to show how two columns would look like */
-/* .foreignMovie li {
-    width: 45%;
-} */
-
 .imageContainer {
     width: 100%;
     max-width: 200px;
@@ -603,7 +592,6 @@ footer {
 @media (max-width: 1024px) {
     form {
         width: 95%;
-        /* margin: 0 0 0 10px; */
     }
 } 
 
@@ -710,7 +698,6 @@ footer {
 
 .movieResultsContainer {
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, 310px);
   gap: 3px;
   margin: 0 auto;
@@ -730,7 +717,6 @@ footer {
       align-items: center;
       border: 1px rgba(255, 255, 255, 0.22) solid;
       border-radius: 5px;
-      margin: 3px 20px;
       font-size: 14px;
       width: 300px;
       height: 400px;
@@ -766,7 +752,6 @@ footer {
 
 .savedMovieContainer {
     display: grid;
-      /* grid-template-columns: 1fr 1fr 1fr 1fr; */
       grid-template-columns: repeat(auto-fit, 310px);
       gap: 3px;
       margin: 0 auto;
