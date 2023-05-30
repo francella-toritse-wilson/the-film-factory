@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
 import Error from "./Error.js";
+import { Fragment } from "react";
 
-const MovieResults = ({
-  movies,
-  searchedFilms,
-  userQuery
-}) => {
+const MovieResults = ({ movies, searchedFilms, userQuery }) => {
   return (
-    <div className="movieResultsSection">       
+    <div className="movieResultsSection">
       <h2>{`Here are your results for "${userQuery}"`}</h2>
       <ul className="movieResultsContainer">
         {searchedFilms && searchedFilms.length === 0 ? (
@@ -15,19 +12,17 @@ const MovieResults = ({
         ) : (
           movies.map((individualMovie) => {
             return (
-              <>
-              <li className="searchedList"
-                key={individualMovie.id}
-              >
-                <Link to={`/foreignResults/${individualMovie.id}`}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w200/${individualMovie.poster_path}`}
-                    alt={`Movie poster for ${individualMovie.title}`}
-                  />
-                </Link>
-                <p>{individualMovie.title}</p>
-              </li>
-              </>
+              <Fragment key={individualMovie.id}>
+                <li className="searchedList">
+                  <Link to={`/foreignResults/${individualMovie.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w200/${individualMovie.poster_path}`}
+                      alt={`Movie poster for ${individualMovie.title}`}
+                    />
+                  </Link>
+                  <p>{individualMovie.title}</p>
+                </li>
+              </Fragment>
             );
           })
         )}
