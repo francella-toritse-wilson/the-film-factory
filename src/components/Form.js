@@ -6,6 +6,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Form = ({ name, setSearchedFilms, setUserQuery }) => {
   const [userInput, setUserInput] = useState("");
+  const [loading, setLoading] =useState(false)
 
   // initializing a state variable to store a boolean to see if search was performed
   // const [isSearchMade, setIsSearchMade] = useState(false);
@@ -15,6 +16,7 @@ const Form = ({ name, setSearchedFilms, setUserQuery }) => {
     const apiKey = `89517ad5b04450b82d2f07f6f3e3d03b`;
 
     // calling our api data
+    setLoading(true); // Set loading before sending API request
     axios({
       url: "https://api.themoviedb.org/3/search/movie",
       method: "GET",
@@ -27,7 +29,7 @@ const Form = ({ name, setSearchedFilms, setUserQuery }) => {
     })
       .then((res) => {
         const results = res.data.results;
-        // setIsSearchMade(true);
+        setLoading(false); // Stop loading
         navigate("/movieResults");
         const englishAndPoster = results.filter((obj) => {
           return obj.original_language === "en" && obj.poster_path;
@@ -36,6 +38,7 @@ const Form = ({ name, setSearchedFilms, setUserQuery }) => {
         name(englishAndPoster);
       })
       .catch((error) => {
+        setLoading(false); // Stop loading
         alert("Error detected!");
       });
   };
@@ -55,13 +58,17 @@ const Form = ({ name, setSearchedFilms, setUserQuery }) => {
     <section className="formContainer">
       <div className="formHeader">
         <h2>Welcome to The Film Factory!</h2>
-        <h3> Search your favourite English language film, get results from around the world!</h3>
+        <h3>
+          {" "}
+          Search your favourite English language film, get results from around
+          the world!
+        </h3>
       </div>
       <form onSubmit={handleSubmit}>
         <legend>What are you looking for?</legend>
         <label htmlFor="search"></label>
         <div className="searchContainer">
-          <FontAwesomeIcon  className="searchIcon"icon={faSearch} />
+          <FontAwesomeIcon className="searchIcon" icon={faSearch} />
           <input
             onChange={handleUserInput}
             type="text"
@@ -71,8 +78,10 @@ const Form = ({ name, setSearchedFilms, setUserQuery }) => {
             placeholder=" What do you have in mind? "
           />
         </div>
-          <div className="buttonContainer">
-          <button className="searchButton">Search</button>
+        <div className="buttonContainer">
+          <button className="searchButton">
+            {loading ? <>Loading..</> : <>Search</>}
+          </button>
         </div>
       </form>
     </section>

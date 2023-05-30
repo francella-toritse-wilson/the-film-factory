@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 import { getDatabase, ref, push } from "firebase/database";
 import firebase from "./firebase";
 import Error from "./Error.js";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Fragment } from "react";
 
 const ForeignResults = () => {
-
   const { movieID } = useParams();
 
   const [foreignMovieSuggestion, setForeignMovieSuggestion] = useState([]);
@@ -43,7 +43,7 @@ const ForeignResults = () => {
         });
       })
       .then((response) => {
-        // filtering array of movies that contain the same genreCode as the user's search and then filtered based on the following conditional logic: the films are NOT in English 
+        // filtering array of movies that contain the same genreCode as the user's search and then filtered based on the following conditional logic: the films are NOT in English
         const foreignFilteredResults = response.data.results.filter((obj) => {
           return obj.original_language !== "en";
         });
@@ -64,7 +64,6 @@ const ForeignResults = () => {
         alert("ForeignResults error!");
       });
   }, [movieID]);
-
 
   const handleClick = (title, image, englishMovie) => {
     const database = getDatabase(firebase);
@@ -87,24 +86,30 @@ const ForeignResults = () => {
               alt={`Movie poster for ${englishMovie.original_title}`}
             />
           </div>
-            <div className="englishMovieText">
-              <h2> {englishMovie.original_title} </h2>
-              <p>{englishMovie.overview}</p>
-              
-                <button>Save</button>
-              
-            </div>
+          <div className="englishMovieText">
+            <h2> {englishMovie.original_title} </h2>
+            <p>{englishMovie.overview}</p>
+          </div>
         </div>
 
         <div className="foreignMovie">
-          <h2 className={foreignMovieSuggestion && foreignMovieSuggestion.length === 0 ? 'hide' : ''}>Based on your search, we think you might like these foreign-language films</h2>
+          <h2
+            className={
+              foreignMovieSuggestion && foreignMovieSuggestion.length === 0
+                ? "hide"
+                : ""
+            }
+          >
+            Based on this English-language movie, we think you might like these
+            foreign-language films
+          </h2>
           <ul className="foreignMovieList">
             {foreignMovieSuggestion && foreignMovieSuggestion.length === 0 ? (
               <Error />
             ) : (
               foreignMovieSuggestion.map((singleForeignMovieSuggestion) => {
                 return (
-                  <>
+                  <Fragment key={singleForeignMovieSuggestion.id}>
                     <li>
                       <div className="imageContainer">
                         <img
@@ -124,17 +129,16 @@ const ForeignResults = () => {
                             )
                           }
                         >
-                        Like
+                          Like
                         </button>
                       </div>
                     </li>
-                  </>
+                  </Fragment>
                 );
               })
             )}
           </ul>
         </div>
-        
       </section>
     </>
   );
