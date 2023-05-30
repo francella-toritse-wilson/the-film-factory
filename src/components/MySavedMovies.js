@@ -20,20 +20,26 @@ const MySavedMovies = () => {
   }, []);
 
   return (
-      <section className="savedMovieSection">
-       <h2>Your Saved Movies</h2>
-        <ul className="savedMovieContainer">
-          {films.map((individualSavedMovie) => {
-            return (
-              <li className="savedMovieList" key={individualSavedMovie}>
-                <p>You searched for <span>{individualSavedMovie.englishMovie}</span> and your result was <span>{individualSavedMovie.title}</span></p>
-                <img src={`https://image.tmdb.org/t/p/w200/${individualSavedMovie.image}`}
-                alt={`Movie poster for ${individualSavedMovie.title}`} />
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+    <section className="savedMovieSection">
+      <h2>Your Saved Movies</h2>
+      <ul className="savedMovieContainer">
+        {films.map((individualSavedMovie) => {
+          return (
+            <li className="savedMovieList" key={individualSavedMovie.id}>
+              <p>
+                You searched for{" "}
+                <span>{individualSavedMovie.englishMovie}</span> and your result
+                was <span>{individualSavedMovie.title}</span>
+              </p>
+              <img
+                src={`https://image.tmdb.org/t/p/w200/${individualSavedMovie.image}`}
+                alt={`Movie poster for ${individualSavedMovie.title}`}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 

@@ -93,6 +93,18 @@ img {
 svg:not(:root) {
   overflow: hidden;
 }
+
+button:hover {
+  box-shadow: whitesmoke 0 0 11px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:focus {
+  background-color: #fff;
+  color: #630330;
+}
+
 button,
 input,
 optgroup,
@@ -235,7 +247,7 @@ input {
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 form {
@@ -277,20 +289,20 @@ nav {
 }
 
 .navList.open {
-    display: flex;
-    flex-direction: column;
-    padding: 0 0 120px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 120px 0;
 }
 
 .navListItems.display {
-    display: flex;
-    flex-direction: column;
-    margin-top: -10px;
-    margin-left: -40px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -10px;
+  margin-left: -40px;
 }
 
 .navListItems {
-    display: flex;
+  display: flex;
 }
 
 .appLogo {
@@ -314,51 +326,52 @@ nav {
   font-weight: 500;
 }
 
-.navigationList li a{
-    position: relative;
+.navigationList li a {
+  position: relative;
 }
 
 .navigationList li a::before {
-    content: "";  
-    position: absolute;  
-    width: 0;  
-    height: 2px;  
-    bottom: 0;  
-    left: 0;  
-    background-color: #FFF;  
-    visibility: hidden;  
-    transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
 .navigationList li a:hover::before {
-    visibility: visible;
-    width: 100%;
+  visibility: visible;
+  width: 100%;
 }
 
 nav h1 {
-    font-size: 30px;
-    --bg-size: 400%;
-    --color-one: hsl(0, 100%, 100%);
-    --color-two: hsl(0, 0%, 46%);
-    margin: 0px 0px;
-    font-family: "Righteous", cursive;
-    background: linear-gradient(
+  font-size: 30px;
+  --bg-size: 400%;
+  --color-one: hsl(0, 100%, 100%);
+  --color-two: hsl(0, 0%, 46%);
+  margin: 0px 0px;
+  font-family: "Righteous", cursive;
+  background: linear-gradient(
       90deg,
-                  var(--color-one),
-                  var(--color-two),
-                  var(--color-one)
-    ) 0 0 / var(--bg-size) 100%;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: move-bg 8s infinite linear;
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+
+@keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
   }
-  
-  @keyframes move-bg {
-      to {
-        background-position: var(--bg-size) 0;
-      }
-    }
+}
 
 .userProfile {
   display: flex;
@@ -369,20 +382,20 @@ nav h1 {
 }
 
 .hamburgerIcon {
-    display: none;
+  display: none;
 }
 
 /* Form Styling  */
 
 .formContainer {
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.formHeader h2, 
+.formHeader h2,
 .formHeader h3 {
   text-align: center;
   padding: 0px 10px;
@@ -390,7 +403,7 @@ nav h1 {
 
 form {
   display: flex;
-  width: 95%; 
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -422,9 +435,9 @@ input {
   border: 1px solid #630330;
 }
 .formContainer .buttonContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .searchButton {
   border: 1px solid black;
@@ -440,24 +453,22 @@ input[type="text"]::placeholder {
   color: white;
 }
 
-
 /* Welcome.Js Styling  */
-
 
 .welcomeContainer h2 {
   text-align: center;
 }
 
 .trendingList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 310px);
-    gap: 3px;
-    margin: 0 auto;
-    max-width: 1369px;
-    width: 100%;
-    padding: 0px 0px;
-    padding-bottom: 100px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 310px);
+  gap: 3px;
+  margin: 0 auto;
+  max-width: 1369px;
+  width: 100%;
+  padding: 0px 0px;
+  padding-bottom: 100px;
+  justify-content: center;
 }
 .trendingList li {
   display: flex;
@@ -471,11 +482,11 @@ input[type="text"]::placeholder {
   width: 300px;
   height: 400px;
   cursor: pointer;
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
 }
 
 .trendingList li:hover {
-    box-shadow: 0 0 11px whitesmoke; 
+  box-shadow: 0 0 11px whitesmoke;
 }
 
 .trendingList li img {
@@ -484,7 +495,6 @@ input[type="text"]::placeholder {
   justify-content: center;
   max-width: 200px;
   padding-top: 30px;
-  
 }
 .trendingList li p {
   text-align: center;
@@ -493,208 +503,210 @@ input[type="text"]::placeholder {
 
 /* footer styling  */
 
-footer { 
-    text-align: center;
-    margin-top: auto;
-    
+footer {
+  text-align: center;
+  margin-top: auto;
 }
 
 /* foreignResults styling */
 
 .foreignResults {
-    max-width: 1369px;
-    width: 90%;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
+  max-width: 1369px;
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .foreignResults button {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 12px 35px;
-    background-color: #630330;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 12px 35px;
+  background-color: #630330;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.foreignResults button:focus {
+  background-color: #fff;
+  color: #630330;
 }
 
 .foreignResults button:hover {
-    box-shadow: whitesmoke 0 0 11px; 
-    transition: .3s;
+  box-shadow: whitesmoke 0 0 11px;
+  transition: 0.3s;
 }
 
 .englishMovieText,
 .foreignMovieText {
-    margin-left: 25px;
+  margin-left: 25px;
 }
 
 .englishMovie img {
-    height: auto;
-    max-height: 300px;
+  height: auto;
+  max-height: 300px;
 }
 
-
 .foreignMovie {
-    margin: 50px 0 0 0;
+  margin: 50px 0 0 0;
 }
 
 .foreignMovie h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .foreignMovieList h2 {
-    text-align: left;
+  text-align: left;
 }
 
 .englishMovie,
 .foreignMovie li {
-    border: 1px rgba(255, 255, 255, 0.22) solid;
-    border-radius: 5px;
-    height: 100%;
-    padding: 30px;
-    display: flex;
-    max-width: 1369px;
-    width: 100%;
+  border: 1px rgba(255, 255, 255, 0.22) solid;
+  border-radius: 5px;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  max-width: 1369px;
+  width: 100%;
 }
 
 .foreignMovie ul {
-    margin: 30px 0 0 0;
-    padding: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  margin: 30px 0 0 0;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .imageContainer {
-    width: 100%;
-    max-width: 200px;
+  width: 100%;
+  max-width: 200px;
 }
 
 .foreignMovie img {
-    max-height: 300px;
+  max-height: 300px;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 /* error page styling */
 
 .error {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 /* media queries and responsiveness */
 
 @media (max-width: 1024px) {
-    form {
-        width: 95%;
-    }
-} 
+  form {
+    width: 95%;
+  }
+}
 
 @media (max-width: 660px) {
-    .englishMovie,
-    .foreignMovieList li {
-        flex-direction: column;
-    }
+  .englishMovie,
+  .foreignMovieList li {
+    flex-direction: column;
+  }
 
-    .englishMovieText,
-    .foreignMovieText {
-        margin-left: 0px;
-    }
+  .englishMovieText,
+  .foreignMovieText {
+    margin-left: 0px;
+  }
 
-    .englishMovieText,
-    .foreignMovieText,
-    .foreignMovieList h2 {
-        text-align: center;
-    }
+  .englishMovieText,
+  .foreignMovieText,
+  .foreignMovieList h2 {
+    text-align: center;
+  }
 
-    .englishMovieText button,
-    .foreignMovieText button {
-        margin: 0 auto;
-    }
+  .englishMovieText button,
+  .foreignMovieText button {
+    margin: 0 auto;
+  }
 
-    .imageContainer {
-        display: flex;
-        max-width: 660px;
-        justify-content: center;
-    }
+  .imageContainer {
+    display: flex;
+    max-width: 660px;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 540px) {
-    .formContainer {
-        display: flex;
-        flex-direction: column;
-    }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+  }
 
-    form {
-      flex-direction: column;
-      gap: 20px;
-    }
+  form {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    .searchContainer {
-        margin: 0 auto;
-        max-width: 540px;
-        width: 95%;
-    }
-    button {
-        max-width: 95px;
-        width: 100%;
-        margin: 0 auto;
-    }
-    .buttonContainer {
-        width: 100%;
-        margin: 0 auto;
-    }
-    .searchButton {
-        margin: 0 auto;
-    }
+  .searchContainer {
+    margin: 0 auto;
+    max-width: 540px;
+    width: 95%;
+  }
+  button {
+    max-width: 95px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .buttonContainer {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .searchButton {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 760px) {
-    .hamburgerIcon {
-        display: block;
-        cursor: pointer;
-        position: relative;
-    }
-    .userProfile,
-    .profileIcon {
-        display: none
-    }
-    .navListItems {
-        display: none;
-    }
-    .appLogo {
-        width: 100%;
-        max-width: 760px;
-        display: flex;
-        justify-content: space-between;
-    }
-    .section {
-        width: 100%;
-        max-width: 760px;
-        display: flex;
-        flex-direction: column;
-    }
-    .navlistItems.display {
-        margin-top: 0px;
-    }
-    .navListItems.display li {
-        display: flex;
-        flex-direction: column;
-    }
-    .navigationList {
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        margin: 0;
-        padding: 0;
-    }
+  .hamburgerIcon {
+    display: block;
+    cursor: pointer;
+    position: relative;
+  }
+  .userProfile,
+  .profileIcon {
+    display: none;
+  }
+  .navListItems {
+    display: none;
+  }
+  .appLogo {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .section {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+  }
+  .navlistItems.display {
+    margin-top: 0px;
+  }
+  .navListItems.display li {
+    display: flex;
+    flex-direction: column;
+  }
+  .navigationList {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0;
+    padding: 0;
+  }
 }
-
 
 .movieResultsContainer {
   display: grid;
@@ -709,40 +721,40 @@ footer {
 }
 
 .searchedList {
-    display: flex;
-      flex-direction: column;
-      margin: 0 auto;
-        justify-content: center;
-      place-items: center;
-      align-items: center;
-      border: 1px rgba(255, 255, 255, 0.22) solid;
-      border-radius: 5px;
-      font-size: 14px;
-      width: 300px;
-      height: 400px;
-      cursor: pointer;
-      transition: box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  place-items: center;
+  align-items: center;
+  border: 1px rgba(255, 255, 255, 0.22) solid;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 300px;
+  height: 400px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
 }
 
 .searchedList:hover {
   box-shadow: 0 0 11px whitesmoke;
 }
 
-.movieResultsSection h2 { 
+.movieResultsSection h2 {
   text-align: center;
 }
 
 .searchedList li img {
-    display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 200px;
-      padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 200px;
+  padding-top: 30px;
 }
 
 .searchedList p {
-    text-align: center;
-      font-weight: bold;
+  text-align: center;
+  font-weight: bold;
 }
 
 /* Saved Movies Styling */
@@ -751,44 +763,44 @@ footer {
 }
 
 .savedMovieContainer {
-    display: grid;
-      grid-template-columns: repeat(auto-fit, 310px);
-      gap: 3px;
-      margin: 0 auto;
-      max-width: 1369px;
-      width: 100%;
-      padding: 0px 0px;
-      padding-bottom: 100px;
-      justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 310px);
+  gap: 3px;
+  margin: 0 auto;
+  max-width: 1369px;
+  width: 100%;
+  padding: 0px 0px;
+  padding-bottom: 100px;
+  justify-content: center;
 }
 
 .savedMovieList {
-      display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        justify-content: center;
-        place-items: center;
-        align-items: center;
-        border: 1px rgba(255, 255, 255, 0.22) solid;
-        border-radius: 5px;
-        /* margin: 3px 20px; */
-        font-size: 14px;
-        width: 300px;
-        height: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  place-items: center;
+  align-items: center;
+  border: 1px rgba(255, 255, 255, 0.22) solid;
+  border-radius: 5px;
+  /* margin: 3px 20px; */
+  font-size: 14px;
+  width: 300px;
+  height: 400px;
 }
 
 .savedMovieList li img {
-      display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 200px;
-        padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 200px;
+  padding-top: 30px;
 }
 
 .savedMovieList p {
-      text-align: center;
-        font-weight: bold;
-        padding: 0px 10px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0px 10px;
 }
 
 .savedMovieList span {
@@ -797,6 +809,6 @@ footer {
 
 /* Root 404 Error page */
 .rootErrorSection h1,
-.rootErrorSection p{
-text-align: center;
+.rootErrorSection p {
+  text-align: center;
 }
